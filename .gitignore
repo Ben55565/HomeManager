@@ -25,3 +25,13 @@ doc/api/
 
 .flutter-plugins
 .flutter-plugins-dependencies
+Frontend/.gitignore
+Frontend/.metadata
+Frontend/README.md
+Frontend/analysis_options.yaml
+Frontend/android
+Frontend/ios
+Frontend/linux
+Frontend/macos
+Frontend/web
+Frontend/windows

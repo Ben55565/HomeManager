@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:home_manager/Components/floating_action_button.dart';
+import 'package:home_manager/Components/navigation_bar.dart';
+import 'package:home_manager/Pages/home_page.dart';
+
+import 'Components/app_bar.dart';
 
 void main() {
   runApp(const Main());
@@ -13,6 +18,13 @@ class Main extends StatefulWidget {
 
 class _MainState extends State<Main> {
   int currentPage = 0;
+
+  void updatePage(int newPage) {
+    setState(() {
+      currentPage = newPage;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -21,59 +33,9 @@ class _MainState extends State<Main> {
       home: Scaffold(
         appBar: buildAppBar(),
         floatingActionButton: buildFloatingActionButton(),
-        body: Placeholder(),
-        bottomNavigationBar: buildNavigationBar(),
+        body: HomePage(),
+        bottomNavigationBar: buildNavigationBar(currentPage, updatePage),
       ),
     );
   }
-
-  AppBar buildAppBar() {
-    return AppBar(
-      title: Center(
-        child: Text(
-          "Home Manager",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-            fontSize: 18,
-          ),
-        ),
-      ),
-      backgroundColor: Color(0xFF1ABC9C),
-      elevation: 0,
-    );
-  }
-
-  FloatingActionButton buildFloatingActionButton() {
-    return FloatingActionButton(
-      onPressed: () {
-        debugPrint("Pressed the button");
-      },
-      backgroundColor: Color(0xFF1ABC9C),
-      child: Icon(Icons.add),
-      shape: CircleBorder(),
-    );
-  }
-
-  NavigationBar buildNavigationBar() {
-    return NavigationBar(
-      backgroundColor: Color(0xFF1ABC9C),
-      height: 80,
-      destinations: const [
-        NavigationDestination(icon: Icon(Icons.home_filled), label: "Home"),
-        NavigationDestination(
-          icon: Icon(Icons.calendar_month),
-          label: "Calendar",
-        ),
-        NavigationDestination(icon: Icon(Icons.task_alt), label: "Tasks"),
-      ],
-      onDestinationSelected: (int index) {
-        setState(() {
-          currentPage = index;
-        });
-      },
-      selectedIndex: currentPage,
-    );
-  }
-
 }
