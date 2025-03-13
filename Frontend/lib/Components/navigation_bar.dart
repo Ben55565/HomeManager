@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:home_manager/Constants/colors.dart';
 
 NavigationBar buildNavigationBar(int currentPage, Function(int) onPageChanged) {
   return NavigationBar(
-    backgroundColor: Color(0xFF1ABC9C),
+    backgroundColor: AppColors.primary,
     height: 80,
     destinations: const [
       NavigationDestination(icon: Icon(Icons.home_filled), label: "Home"),

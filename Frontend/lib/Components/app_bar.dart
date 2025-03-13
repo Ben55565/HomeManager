@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_manager/Constants/colors.dart';
 
 AppBar buildAppBar() {
   return AppBar(
@@ -7,12 +8,12 @@ AppBar buildAppBar() {
         "Home Manager",
         style: TextStyle(
           fontWeight: FontWeight.bold,
-          color: Colors.black,
+          color: AppColors.textPrimary,
           fontSize: 18,
         ),
       ),
     ),
-    backgroundColor: Color(0xFF1ABC9C),
+    backgroundColor: AppColors.primary,
     elevation: 0,
   );
 }
